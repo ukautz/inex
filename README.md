@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/ukautz/inex.svg?branch=master)](https://travis-ci.org/ukautz/inex)
-[![Coverage](https://gocover.io/_badge/github.com/ukautz/inex?v=0.1.6)](http://gocover.io/github.com/ukautz/inex)
+[![Coverage](https://gocover.io/_badge/github.com/ukautz/inex)](http://gocover.io/github.com/ukautz/inex)
 [![GoDoc](https://godoc.org/github.com/ukautz/inex?status.svg)](https://godoc.org/github.com/ukautz/inex)
 
 Inex : INclude EXclude framework
@@ -55,7 +55,7 @@ Example: Rebuild GNU linux `find` - or parts of it
 
 Let's build a simple command line tool to recursively find all files in a directory, which are included or excluded by provided regular expressions.
 
-The command line interface should provide `-i <regex>` or `--include <regex>` parameters to include matching paths and `-e <regex>` or `--exclude <regex>` to do the opposite. The exemplary `filter` command line program, executed in this `inex` directory should then work like this:
+The command line interface should provide `-i <regex>` or `--include <regex>` parameters to include matching paths and `-e <regex>` or `--exclude <regex>` to do the opposite. The exemplary `newfind` command line program, executed in this `inex` directory should then work like this:
 
 ```bash
 $ newfind -i '.*\.go$' -i '(_test|inex)' -e '\/'

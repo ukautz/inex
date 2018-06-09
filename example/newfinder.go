@@ -10,16 +10,18 @@ import (
 )
 
 var help = fmt.Sprintf(`
-Usage: %s [parameters]
+Usage: %s <parameters>
+
+parameters:
   (-p|--path) <path>
     path to directory to find recursively in
   (-e|--exclude) <regex>                            [multiple allowed]
     regular expression matching file paths which are not to be displayed
   (-i|--include) <regex>                            [multiple allowed]
     regular expression matching file paths which are to be displayed
-  (-c|--contains) <string>
+  (-c|--contains) <string>                          [multiple allowed]
     this string must be contained in paths which are to be displayed
-  (-C|--not-contains) <string>
+  (-C|--not-contains) <string>                      [multiple allowed]
     this string must NOT be contained in paths which are to be displayed
   (-t|--type) (f|file|d|directory)
     whether path to be displayed must be file or directory
@@ -63,7 +65,7 @@ func main() {
 			switch typ {
 			case "f", "file", "d", "directory":
 			default:
-				die("invaid --type provided. must be \"f\", \"file\", \"d\" or \"directory\"")
+				die("invalid --type provided. must be \"f\", \"file\", \"d\" or \"directory\"")
 			}
 			filter = filter.Include(inex.FuncMatcher(func(str string) bool {
 				stat, err := os.Stat(str)
